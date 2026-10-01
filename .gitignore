@@ -1,0 +1,6 @@
+.env
+*.html # pages de httpget
+*.swp # temporaires de vim
+.DS_Store
+*.log
+
