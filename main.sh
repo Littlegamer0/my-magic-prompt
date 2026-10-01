@@ -1,5 +1,10 @@
 #!/bin/bash
 source quit.sh
+source .env
+
+passwords=$(echo "$passwords" | tr -d '\r')
+echo "PASSWORD = $passwords"
+
 
 cmd() {
   cmd=$1
@@ -142,20 +147,24 @@ main() {
 }
 
 
-
 verify() {
-  echo "saissiser votre id"
-  read id
-  if [ "$id" != "Xzen" ]; then
-    echo "id incorrect"
-    exit 1
-  fi
-  echo "saissiser votre mot de passe"
-  read -s password
-  if [ "$password" != "12345" ]; then
-    echo "mot de passe incorrect"
-    exit 1
-  fi
+    echo "saisissez votre id"
+    read id
+
+    if [ "$id" != "$login" ]; then
+        echo "id incorrect"
+        return 1
+    fi
+
+    echo "saisissez votre mot de passe"
+    read -r -s password
+
+    if [ "$password" != "$passwords" ]; then
+        echo "mot de passe incorrect"
+        return 1
+    fi
+
+    echo "Connexion réussie"
 }
 
 verify
