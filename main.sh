@@ -10,6 +10,13 @@ cmd() {
   cmd=$1
   argv=$*
 
+
+
+
+
+
+
+
   case "${cmd}" in
     quit | exit ) quit;;
   help )  echo "Commande disponible :" #permet d'afficher les commandes disponibles
